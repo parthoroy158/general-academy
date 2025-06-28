@@ -16,7 +16,7 @@ const Carousal = () => {
             name: "আমিনুল ইসলাম খান",
             title: "সহকারী জজ, শেরপুর",
             extra: "সাবেক আইন কর্মকর্তা, পূবালী ব্যাংক লিমিটেড",
-            image: '/ragibBhai.png'
+            image: '/Aminul-bhai.jpeg'
         },
         {
             name: "আফরোজী সাচ্চু শাহনেওয়াজ",
@@ -26,32 +26,35 @@ const Carousal = () => {
         {
             name: "কাউসার আহমেদ",
             title: "সহকারী কমিশনার, রংপুর",
-            image: '/ragibBhai.png'
+            image: '/public/Kawser-bhaiya.jpeg'
         },
         {
             name: "মাহমুদা আখিঁ",
             title: "সহকারী জজ",
-            image: '/ragibBhai.png'
+            image: '/Akhi-Apu.jpeg'
         },
         {
             name: "শান্ত দেব রয় অর্ণ",
             title: "সহকারী জজ",
-            image: '/ragibBhai.png'
+            image: '/Arno-dada.jpeg'
         },
         {
             name: "তানজিনা এলিন",
             title: "সহকারী জজ",
-            image: '/ragibBhai.png'
+            image: '/Elin-apu.jpeg'
         }
     ];
 
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 600,
+        autoplaySpeed: 3000,
+        autoplay: true,
+        cssEase: "ease-in-out",
+        pauseOnHover: true,
         slidesToShow: 3,
         slidesToScroll: 1,
-        autoplay: true,
         responsive: [
             {
                 breakpoint: 1024,
@@ -69,18 +72,24 @@ const Carousal = () => {
     };
 
     return (
-        <div className="max-w-6xl mx-auto px-4 py-10">
+        <div className="max-w-7xl mx-auto px-4 py-14 text-center contain-center place-content-center ">
             <Slider {...settings}>
                 {mentors.map((item, index) => (
-                    <div key={index} className="px-2">
-                        <div className="card bg-white w-full h-70 shadow-md rounded-xl text-black overflow-hidden">
-                            <figure className="p-4">
-                                <img src={item.image} alt={item.name} className="rounded-xl h-48 object-cover w-48" />
-                            </figure>
-                            <div className="card-body">
-                                <h2 className="card-title text-[#e6007e]">{item.name}</h2>
-                                <p>{item.title}</p>
-                                {item.extra && <p className="text-sm text-gray-500">{item.extra}</p>}
+                    <div key={index} className="px-3 ">
+                        <div className=" rounded-2xl shadow-lg hover:shadow-xl transition duration-300 h-80 ease-in-out bg-blue-100 ">
+                            <div className="flex justify-center pt-6">
+                                <img
+                                    src={item.image}
+                                    alt={item.name}
+                                    className="rounded-full w-32 h-32 object-cover ring-2 ring-[#e6007e]"
+                                />
+                            </div>
+                            <div className="text-center px-6 py-4">
+                                <h3 className="text-lg font-semibold text-[#e6007e]">{item.name}</h3>
+                                <p className="text-gray-700 text-sm mt-1">{item.title}</p>
+                                {item.extra && (
+                                    <p className="text-gray-500 text-xs mt-1">{item.extra}</p>
+                                )}
                             </div>
                         </div>
                     </div>
