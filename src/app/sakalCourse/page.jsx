@@ -121,44 +121,40 @@ const SakalCourse = () => {
 
 
     return (
-        <div className='min-h-screen'>
-            <div className="pt-10 sm:pt-12 md:pt-16 lg:pt-20 flex flex-wrap gap-4 justify-center">
-                {
-                    courses.map(item => {
-                        return (
-                            <Link href={`/sakalCourse/${item.id}`}>
-                                <div className="card  w-96 bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 mt-20">
-                                    <figure className="h-60 overflow-hidden">
-                                        <img
-                                            src={item.fee.image}
-                                            alt={item.course_name || "Course Image"}
-                                            className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
-                                        />
-                                    </figure>
-                                    <div className="card-body space-y-2">
-                                        <h2 className="card-title text-xl text-primary">{item.course_name}</h2>
-                                        <p className="text-sm text-gray-600">
-                                            বিস্তৃত তথ্যের জন্য বিস্তারিত বাটনে ক্লিক করুন।
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-10 px-4 place-content-center">
+            <div className="flex flex-wrap gap-6 justify-center ">
+                {courses.map((item) => (
+                    <Link href={`/sakalCourse/${item.id}`} key={item.id}>
+                        <div className="w-full max-w-sm">
+                            <div className="card w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 mt-10 rounded-xl overflow-hidden">
+                                <figure className="h-60 overflow-hidden">
+                                    <img
+                                        src={item.fee.image}
+                                        alt={item.course_name || "Course Image"}
+                                        className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                                    />
+                                </figure>
+                                <div className="card-body space-y-2 px-5 py-4">
+                                    <h2 className="card-title text-xl text-blue-700 dark:text-blue-300">{item.course_name}</h2>
+                                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                                        বিস্তৃত তথ্যের জন্য বিস্তারিত বাটনে ক্লিক করুন।
+                                    </p>
+                                    <div className="flex justify-between items-center bg-gray-100 dark:bg-gray-700 p-3 rounded-lg mt-4">
+                                        <p className="text-md font-semibold text-gray-800 dark:text-gray-200">
+                                            Price: {item.fee?.regular?.toLocaleString()} BDT
                                         </p>
-                                        <div className="flex justify-between items-center bg-base-200 p-3 rounded-lg mt-4">
-                                            <p className="text-md font-semibold text-gray-700">
-                                                Price: {item.fee?.regular?.toLocaleString()} BDT
-                                            </p>
-                                            <button className="btn btn-sm btn-primary hover:scale-105 transition-transform duration-200">
-                                                Details
-                                            </button>
-                                        </div>
+                                        <button className="btn btn-sm bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-transform duration-200 rounded-md px-4">
+                                            বিস্তারিত
+                                        </button>
                                     </div>
                                 </div>
-
-                            </Link>
-
-                        )
-                    })
-                }
-
+                            </div>
+                        </div>
+                    </Link>
+                ))}
             </div>
         </div>
+
     );
 };
 

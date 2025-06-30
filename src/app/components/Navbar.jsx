@@ -51,29 +51,49 @@ const Navbar = () => {
     );
 
     return (
-        <div className="navbar bg-blue-100 shadow-sm max-w-7xl mx-auto fixed z-1 opacity-75 text-black">
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+        <div className="w-full fixed top-0 z-20 bg-gradient-to-r from-[#e6f0fb] to-[#f5f5ff] dark:bg-gray-900 shadow-sm">
+            {/* Content Container (max-width) */}
+            <div className="navbar max-w-7xl mx-auto px-4 text-black dark:text-white">
+
+                {/* Navbar Start (Logo + Dropdown) */}
+                <div className="navbar-start">
+                    {/* Mobile Dropdown */}
+                    <div className="dropdown">
+                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+
+                        {/* Mobile Menu */}
+                        <ul
+                            tabIndex={0}
+                            className="menu menu-sm dropdown-content mt-3 z-30 p-2 shadow bg-base-100 dark:bg-gray-800 rounded-box w-52"
+                        >
+                            {navOptions}
+                        </ul>
                     </div>
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+
+                    {/* Logo and Brand */}
+                    <Link href="/" className="flex items-center gap-2 ml-2">
+                        <img src="/logo.png" width={40} height={40} alt="Logo" className="rounded" />
+                        <span className="text-xl font-bold text-black">জেনারেল একাডেমি</span>
+                    </Link>
+                </div>
+
+                {/* Navbar End (Desktop Nav Links) */}
+                <div className="navbar-end hidden lg:flex">
+                    <ul className="menu menu-horizontal px-1">
                         {navOptions}
                     </ul>
                 </div>
-                <img src='/logo.png' width={50} height={50} className='rounded' alt="" />
-                <Link href='/'>
-                    <p className='text-xl'> জেনারেল একাডেমি</p>
-                </Link>
             </div>
-            <div className="navbar-end hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    {navOptions}
-                </ul>
-            </div>
-
         </div>
     );
 };
