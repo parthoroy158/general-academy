@@ -3,24 +3,52 @@ import React from 'react';
 
 const Navbar = () => {
 
-    const navOptions = <>
-        <Link href='/'>
-            <li><a>হোম</a></li>
-        </Link>
-        <Link href='/'>
-            <li><a>সকল কোর্স</a></li>
-        </Link>
-        <Link href='/'>
-            <li><a>আমাদের সম্পর্কে</a></li>
-        </Link>
-        <Link href='/'>
-            <li><a>ডেমো ক্লাস</a></li>
-        </Link>
-        <Link href='/'>
-            <li><a>যোগাযোগ</a></li>
-        </Link>
-
-    </>
+    const navOptions = (
+        <nav className="w-full">
+            <ul className="flex flex-col md:flex-row md:gap-1 font-medium text-gray-800">
+                <li>
+                    <Link
+                        href="/"
+                        className="block px-4 py-2 rounded-md hover:bg-blue-200 transition"
+                    >
+                        হোম
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        href="/sakalCourse"
+                        className="block px-4 py-2 rounded-md hover:bg-blue-200 transition"
+                    >
+                        সকল কোর্স
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        href="/aboutUs"
+                        className="block px-4 py-2 rounded-md hover:bg-blue-200 transition"
+                    >
+                        আমাদের সম্পর্কে
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        href="/demo"
+                        className="block px-4 py-2 rounded-md hover:bg-blue-2000 transition"
+                    >
+                        ডেমো ক্লাস
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        href="/contact"
+                        className="block px-4 py-2 rounded-md hover:bg-blue-200 transition"
+                    >
+                        যোগাযোগ
+                    </Link>
+                </li>
+            </ul>
+        </nav>
+    );
 
     return (
         <div className="navbar bg-blue-100 shadow-sm max-w-7xl mx-auto fixed z-1 opacity-75 text-black">
@@ -36,14 +64,16 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <img src='/logo.png' width={50} height={50} className='rounded' alt="" />
-                <a className="btn btn-ghost text-xl">জেনারেল একাডেমি</a>
+                <Link href='/'>
+                    <p className='text-xl'> জেনারেল একাডেমি</p>
+                </Link>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {navOptions}
                 </ul>
             </div>
-           
+
         </div>
     );
 };

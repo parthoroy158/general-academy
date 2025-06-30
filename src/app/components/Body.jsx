@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Body = () => {
@@ -11,25 +12,27 @@ const Body = () => {
             </p>
 
             <div className="flex flex-col md:flex-row gap-10 justify-center items-center mt-20  mb-20 ">
-                <div className="bg-transparent card w-80 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-in-out transform hover:ring-1 hover:ring-pink-500">
-                    <figure className='p-5'>
-                        <img
-                            className='w-full h-50 object-cover rounded'
-                            src='/course-banner.jpeg'
-                            alt="Shoes"
-                        />
-                    </figure>
-                    <div className="card-body">
-                        <h2 className="card-title">
-                            BJS Examination Course
+                <Link href='/sakalCourse/bjs18-general'>
+                    <div className="bg-transparent card w-80 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-in-out transform hover:ring-1 hover:ring-pink-500">
+                        <figure className='p-5'>
+                            <img
+                                className='w-full h-50 object-cover rounded'
+                                src='/course-banner.jpeg'
+                                alt="Shoes"
+                            />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="card-title">
+                                BJS Examination Course
 
-                        </h2>
-                        <p>
-                            A card component has a figure, a body part, and inside body there are title and actions parts
-                        </p>
+                            </h2>
+                            <p>
+                                A card component has a figure, a body part, and inside body there are title and actions parts
+                            </p>
 
+                        </div>
                     </div>
-                </div>
+                </Link>
 
                 <div className="card bg-transparent w-80 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-in-out transform hover:ring-1 hover:ring-pink-500 ">
                     <figure className='p-5'>
