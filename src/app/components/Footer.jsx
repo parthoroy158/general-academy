@@ -28,7 +28,8 @@ const Footer = () => {
                     {/* About Section */}
                     <div className="flex flex-col gap-2">
                         <a href="/aboutUs" className="hover:underline">About</a>
-                        <a href="/bpsc-link" className="hover:underline">BPSC Link</a>
+                        <a href="https://bjsc.gov.bd/" className="hover:underline">BJSC Link</a>
+                        <a href="https://www.barcouncil.gov.bd/" className="hover:underline">Bar-council Link</a>
                         <a href="/privacy-policy" className="hover:underline">Privacy Policy</a>
                     </div>
 
@@ -40,12 +41,12 @@ const Footer = () => {
 
                     {/* Contact Section */}
                     <div className="space-y-2">
-                        <p>P2A বিসিএস, ব্যাংক ও সরকারি চাকরির প্রস্তুতির জন্য বাংলাদেশের প্রথম অনলাইন প্ল্যাটফর্ম।</p>
-                        <p>Address: House-32, Road-07, Banani, Dhaka</p>
+                        <p>General Academy</p>
+                        <p>Address: Dhaka,Bangladesh</p>
                         <p>
-                            Email: <a href="mailto:support@p2a.academy" className="text-blue-500 hover:underline">support@p2a.academy</a>
+                            Email: <a href="mailto:support@p2a.academy" className="text-blue-500 hover:underline">generalacademybd@gmail.com</a>
                         </p>
-                        <p>Helpline: 01329672052</p>
+                        <p>Helpline: +8801325410258 ,+8801533302578</p>
                     </div>
                 </footer>
             </div>

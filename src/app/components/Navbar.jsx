@@ -3,17 +3,17 @@ import Link from 'next/link';
 import React from 'react';
 
 const Navbar = () => {
-    const handleClick = (e) => {
-        e.preventDefault();
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: 'smooth' // Smooth scroll to bottom
-        });
-    };
+    // const handleClick = (e) => {
+    //     e.preventDefault();
+    //     window.scrollTo({
+    //         top: document.body.scrollHeight,
+    //         behavior: 'smooth' // Smooth scroll to bottom
+    //     });
+    // };
 
     const navOptions = (
         <nav className="w-full">
-            <ul className="flex flex-col md:flex-row md:gap-1 font-medium text-gray-800">
+            <ul className="flex flex-col md:flex-row md:gap-2 font-medium  dark:text-black-100 text-black">
                 <li>
                     <Link
                         href="/"
@@ -48,10 +48,10 @@ const Navbar = () => {
                 </li>
                 <li>
                     <Link
-                        href="/contact"
+                        href="/contactUs"
                         className="block px-4 py-2 rounded-md hover:bg-blue-200 transition"
                     >
-                        <button onClick={handleClick}>যোগাযোগ</button>
+                        <button >যোগাযোগ</button>
                     </Link>
                 </li>
             </ul>
@@ -60,7 +60,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="w-full fixed top-0 z-20 bg-gradient-to-r from-[#e6f0fb] to-[#f5f5ff] dark:bg-gray-900 shadow-sm">
+        <div className="w-full fixed top-0 z-20 bg-gradient-to-r from-[#e6f0fb] to-[#f5f5ff] dark:bg-white shadow-sm">
             {/* Content Container (max-width) */}
             <div className="navbar  max-w-7xl mx-auto px-4 text-black dark:text-white">
 
@@ -71,7 +71,7 @@ const Navbar = () => {
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                className="h-5 w-5"
+                                className="h-5 w-5 text-black"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -83,7 +83,7 @@ const Navbar = () => {
                         {/* Mobile Menu */}
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content mt-3 z-30 p-2 shadow bg-base-100 dark:bg-gray-800 rounded-box w-52"
+                            className="menu menu-sm dropdown-content mt-3 z-30 p-2 shadow bg-base-100 dark:bg-white rounded-box w-52"
                         >
                             {navOptions}
                         </ul>
