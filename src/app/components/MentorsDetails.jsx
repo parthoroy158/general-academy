@@ -13,12 +13,12 @@ const MentorsDetails = () => {
                         <h2 className="text-3xl lg:text-4xl font-bold mb-5 leading-snug">
                             কেন <span className='text-red-800'>জেনারেল একাডেমিতে </span>আস্থা রাখবেন?
                         </h2>
-                        <p className="text-base lg:text-lg leading-relaxed text-gray-200">
-                            সেরা কন্টেন্ট ও সর্বাধুনিক প্রযুক্তির সাথে সারাদেশের ১০ লক্ষ+ শিক্ষার্থীর
-                            ঘনিষ্ঠতায় পড়ালেখা ও পরীক্ষা প্রস্তুতির নির্ভরযোগ্য প্রতিষ্ঠান <strong>Shikho</strong>!
+                        <p className="text-base lg:text-lg leading-relaxed text-gray-200 text-justify">
+                            সেরা কন্টেন্ট ও সর্বাধুনিক প্রযুক্তির সাথে সারাদেশের ২ হাজার+ শিক্ষার্থীর
+                            ঘনিষ্ঠতায় পড়ালেখা ও পরীক্ষা প্রস্তুতির নির্ভরযোগ্য প্রতিষ্ঠান <strong>General Academy</strong>!
                         </p>
 
-                        <ul className="mt-6 space-y-3 text-sm lg:text-base text-left lg:ml-6 list-disc list-inside text-gray-100">
+                        <ul className="mt-6 space-y-3 text-sm lg:text-base text-left lg:ml-6 list-disc list-inside text-gray-100 ">
                             <li>এক্সপার্ট মেন্টরের দিকনির্দেশনা</li>
                             <li>বাস্তবভিত্তিক প্রস্তুতি প্ল্যান</li>
                             <li>ইন্টারঅ্যাকটিভ ও প্র্যাক্টিকাল কনটেন্ট</li>

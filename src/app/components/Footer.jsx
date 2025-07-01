@@ -27,7 +27,7 @@ const Footer = () => {
                 <footer className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-10 py-6 border-t border-gray-200 dark:border-gray-700 text-sm">
                     {/* About Section */}
                     <div className="flex flex-col gap-2">
-                        <a href="/about" className="hover:underline">About</a>
+                        <a href="/aboutUs" className="hover:underline">About</a>
                         <a href="/bpsc-link" className="hover:underline">BPSC Link</a>
                         <a href="/privacy-policy" className="hover:underline">Privacy Policy</a>
                     </div>

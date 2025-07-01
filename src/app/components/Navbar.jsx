@@ -1,7 +1,15 @@
+"use client"
 import Link from 'next/link';
 import React from 'react';
 
 const Navbar = () => {
+    const handleClick = (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth' // Smooth scroll to bottom
+        });
+    };
 
     const navOptions = (
         <nav className="w-full">
@@ -43,17 +51,18 @@ const Navbar = () => {
                         href="/contact"
                         className="block px-4 py-2 rounded-md hover:bg-blue-200 transition"
                     >
-                        যোগাযোগ
+                        <button onClick={handleClick}>যোগাযোগ</button>
                     </Link>
                 </li>
             </ul>
         </nav>
     );
 
+
     return (
         <div className="w-full fixed top-0 z-20 bg-gradient-to-r from-[#e6f0fb] to-[#f5f5ff] dark:bg-gray-900 shadow-sm">
             {/* Content Container (max-width) */}
-            <div className="navbar max-w-7xl mx-auto px-4 text-black dark:text-white">
+            <div className="navbar  max-w-7xl mx-auto px-4 text-black dark:text-white">
 
                 {/* Navbar Start (Logo + Dropdown) */}
                 <div className="navbar-start">

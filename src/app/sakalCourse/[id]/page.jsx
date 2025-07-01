@@ -1,3 +1,5 @@
+
+import IframeVideo from '@/app/components/IframeVideo';
 import Link from 'next/link';
 import React from 'react';
 
@@ -264,6 +266,7 @@ const DetailsSinglePage = ({ params }) => {
                                     frameBorder="0"
                                     allowFullScreen
                                 ></iframe>
+                                {/* <IframeVideo></IframeVideo> */}
                             </div>
 
                             {/* Course Features */}
