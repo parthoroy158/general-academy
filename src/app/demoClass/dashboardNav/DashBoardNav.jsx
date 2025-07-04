@@ -44,9 +44,9 @@ const DashBoardNav = ({ activeVideoId }) => {
   ];
 
   return (
-    <nav className="w-full lg:w-full md:min-h-screen bg-white dark:bg-gray-800 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-gray-700 px-6 py-6">
-      <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-5">Video Categories</h2>
-      <ul className="space-y-4">
+    <nav className="w-full lg:w-full md:min-h-screen bg-gray-100 rounded shadow-sm dark:bg-gray-100 border-b lg:border-b-0 lg:border-r border-white dark:border-white px-6 py-6">
+      <h2 className="text-l font-bold text-gray-900 dark:text-black mb-5 uppercase bg-blue-100 rounded p-3">Video Categories</h2>
+      <ul className="space-y-4 text-black">
         {
           YouTubeVideo.map(item => {
             // Determine if the current link is active based on the prop
@@ -56,14 +56,15 @@ const DashBoardNav = ({ activeVideoId }) => {
               <li key={item.id}>
                 <Link
                   href={`/demoClass/dashboardNav/${item.id}`}
-                  className={`block text-lg transition-colors duration-200 ease-in-out ${isActive
-                      ? 'text-blue-600 dark:text-blue-400 font-extrabold border-l-4 border-blue-600 pl-3 -ml-3'
-                      : 'text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium'
+                  className={`block px-4 rounded-lg text-lg transition-all duration-200 border-dotted ease-in-out${isActive
+                    ? 'text-blue-600 dark:text-black font-extrabold bg-blue-100 border-l-4 border-blue-600'
+                    : 'text-gray-700 dark:text-black hover:text-blue-600 border-dotted hover:bg-blue-50 hover:pl-5 font-medium'
                     }`}
-                  aria-current={isActive ? "page" : undefined}
+                  aria-current={isActive ? 'page' : undefined}
                 >
                   {item.language}
                 </Link>
+
               </li>
             );
           })

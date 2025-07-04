@@ -76,7 +76,7 @@ const Carousal = () => {
             <Slider {...settings}>
                 {mentors.map((item, index) => (
                     <div key={index} className="px-3">
-                        <div className="rounded-2xl shadow-sm hover:shadow-md transition duration-300 bg-gray-50 dark:bg-gray-800 h-80">
+                        <div className="rounded-2xl shadow-sm hover:shadow-md transition duration-300 bg-gray-50 dark:bg-base-800 h-80">
                             <div className="flex justify-center pt-6">
                                 <img
                                     src={item.image}
@@ -85,10 +85,10 @@ const Carousal = () => {
                                 />
                             </div>
                             <div className="text-center px-6 py-4">
-                                <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-300">
+                                <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-400">
                                     {item.name}
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">
+                                <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
                                     {item.title}
                                 </p>
                                 {item.extra && (

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Body = () => {
     return (
-        <div className="w-full bg-gray-100 dark:bg-gray-900 text-black dark:text-white">
+        <div className="w-full bg-gray-100 dark:bg-gray-100 text-black dark:text-black">
             <div className="max-w-7xl mx-auto px-4 pt-1 pb-5">
                 <h1 className="mb-5 mt-16 text-3xl font-bold text-center text-blue-900 dark:text-blue-300">
                     উদ্দেশ্য স্পষ্ট থাকলে সঠিক প্রস্তুতি আপনাকে কাঙ্ক্ষিত লক্ষ্যে পৌঁছে দিতে পারে
@@ -14,7 +14,7 @@ const Body = () => {
 
                 <div className="flex flex-col md:flex-row gap-10 justify-center items-center mt-20 mb-20">
                     <Link href="/sakalCourse/bjs18-general">
-                        <div className="w-80 bg-white dark:bg-gray-800 rounded shadow-sm hover:shadow-2xl hover:-translate-y-2 transform transition-all duration-300 ease-in-out hover:ring-1 hover:ring-pink-500">
+                        <div className="w-80 bg-white dark:bg-gray-100 rounded shadow-sm hover:shadow-2xl hover:-translate-y-2 transform transition-all duration-300 ease-in-out hover:ring-1 hover:ring-pink-500">
                             <figure className="p-5">
                                 <img
                                     src="/course-banner.jpeg"
@@ -31,7 +31,7 @@ const Body = () => {
                         </div>
                     </Link>
 
-                    <div className="w-80 bg-white dark:bg-gray-800 rounded shadow-sm hover:shadow-2xl hover:-translate-y-2 transform transition-all duration-300 ease-in-out hover:ring-1 hover:ring-pink-500">
+                    <div className="w-80 bg-white dark:bg-gray-100 rounded shadow-sm hover:shadow-2xl hover:-translate-y-2 transform transition-all duration-300 ease-in-out hover:ring-1 hover:ring-pink-500">
                         <figure className="p-5">
                             <img
                                 src="advo.jpeg"

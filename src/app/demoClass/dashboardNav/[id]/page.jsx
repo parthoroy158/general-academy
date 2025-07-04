@@ -1,4 +1,7 @@
+
+import Link from 'next/link';
 import React from 'react';
+import { GrNext, GrPrevious } from "react-icons/gr";
 
 const Page = async ({ params }) => {
   const id = parseInt(params.id); // Ensure id is a number
@@ -61,12 +64,38 @@ const Page = async ({ params }) => {
         {video.title}
       </h1>
 
-      <div className="relative rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-[1.01]">
+      <div className="relative rounded-xl shadow-2xl overflow-hidden  transition-transform transform hover:scale-[1.01]">
         <div
-          className="aspect-w-16 aspect-h-9"
+          className="aspect-w-16 aspect-h-10 "
           dangerouslySetInnerHTML={{ __html: video.embed }}
         />
       </div>
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border border-gray-200 rounded-2xl mt-6 p-4 bg-white shadow-sm">
+
+        {/* Previous Button */}
+        <Link href={`/demoClass/dashboardNav/${video.id - 1}`} passHref>
+          <button
+            className="btn btn-secondary flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 text-base font-semibold transition-all duration-200 ease-in-out hover:scale-[1.03] disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={video.id <= 1}
+          >
+            <GrPrevious className="text-lg" />
+            Previous
+          </button>
+        </Link>
+
+        {/* Next Button */}
+        <Link href={`/demoClass/dashboardNav/${video.id + 1}`} passHref>
+          <button
+            className="btn btn-secondary flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 text-base font-semibold transition-all duration-200 ease-in-out hover:scale-[1.03]"
+          >
+            Next
+            <GrNext className="text-lg" />
+          </button>
+        </Link>
+
+      </div>
+
+
 
       <p className="mt-6 text-center text-sm text-gray-500">
         @Powered by Genetal Academy – Your gateway to mastering law.
