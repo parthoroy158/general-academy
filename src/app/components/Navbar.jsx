@@ -40,7 +40,7 @@ const Navbar = () => {
                 </li>
                 <li>
                     <Link
-                        href="/demo"
+                        href="/demoClass"
                         className="block px-4 py-2 rounded-md hover:bg-blue-2000 transition"
                     >
                         ডেমো ক্লাস

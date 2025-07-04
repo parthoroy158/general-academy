@@ -20,7 +20,7 @@ const Page = () => {
                     <p className="text-gray-700 mt-4">
                         Address: Dhaka, Bangladesh <br />
                         Email: <a href="mailto:support@p2a.academy" className="text-blue-600">generalacademybd@gmail.com</a><br />
-                        Helpline: <a href="tel:01329672052" className="text-blue-600">01329672052</a>
+                        Helpline: <a href="tel:01329672052" className="text-blue-600">+8801325410258 ,+8801533302578f</a>
                     </p>
                 </div>
 

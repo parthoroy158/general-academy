@@ -72,23 +72,29 @@ const Carousal = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto px-4 py-14 text-center contain-center place-content-center ">
+        <div className="max-w-7xl mx-auto px-4 py-14 text-center">
             <Slider {...settings}>
                 {mentors.map((item, index) => (
-                    <div key={index} className="px-3 ">
-                        <div className=" rounded-2xl shadow-lg hover:shadow-xl transition duration-300 h-80 ease-in-out bg-blue-100 ">
+                    <div key={index} className="px-3">
+                        <div className="rounded-2xl shadow-sm hover:shadow-md transition duration-300 bg-gray-50 dark:bg-gray-800 h-80">
                             <div className="flex justify-center pt-6">
                                 <img
                                     src={item.image}
                                     alt={item.name}
-                                    className="rounded-full w-32 h-32 object-cover ring-2 ring-[#e6007e]"
+                                    className="rounded-full w-28 h-28 object-cover ring-2 ring-blue-400 dark:ring-blue-300"
                                 />
                             </div>
                             <div className="text-center px-6 py-4">
-                                <h3 className="text-lg font-semibold text-[#e6007e]">{item.name}</h3>
-                                <p className="text-gray-700 text-sm mt-1">{item.title}</p>
+                                <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-300">
+                                    {item.name}
+                                </h3>
+                                <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">
+                                    {item.title}
+                                </p>
                                 {item.extra && (
-                                    <p className="text-gray-500 text-xs mt-1">{item.extra}</p>
+                                    <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">
+                                        {item.extra}
+                                    </p>
                                 )}
                             </div>
                         </div>
@@ -96,6 +102,8 @@ const Carousal = () => {
                 ))}
             </Slider>
         </div>
+
+
     );
 };
 

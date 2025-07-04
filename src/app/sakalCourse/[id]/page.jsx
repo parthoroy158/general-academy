@@ -4,7 +4,9 @@ import Link from 'next/link';
 import React from 'react';
 
 export const metadata = {
-    title: 'সকল কোর্স || Sokol Course',
+    title: 'সকল কোর্স || Sokol Course || All courses',
+    keywords: ['General Academy', 'GeneralBD', 'BD General Academy', 'all courses'],
+    description: 'All courses,Genetal Academy is a premier online coaching center dedicated to empowering aspiring legal professionals with the knowledge and skills they need to excel in competitive examinations. Specializing in law-focused education, Genetal Academy offers expertly designed courses for a wide range of legal exams, with a special emphasis on BJS',
 }
 const DetailsSinglePage = ({ params }) => {
 
@@ -19,6 +21,7 @@ const DetailsSinglePage = ({ params }) => {
             course_name: "১৮তম বিজেএস জেনারেল কোর্স",
             duration: "১৮তম জুডিশিয়ারি লিখিত পরীক্ষার পর্যন্ত",
             start_date: null,
+            active: false,
             class_time: "রাত ৯:৩০",
             orientation_class: {
                 date: "২৬ জুন ২০২৫",
@@ -40,7 +43,41 @@ const DetailsSinglePage = ({ params }) => {
                 weekly_classes: null,
                 weekly_exams: null
             },
-            mentors: null,
+            mentors: [
+                {
+                    name: "রাগিব মোস্তফা নাঈম",
+                    designation: "সহকারী জজ",
+                    workplace: "ময়মনসিংহ"
+                },
+                {
+                    name: "আমিনুল ইসলাম খান",
+                    designation: "সহকারী জজ",
+                    workplace: "শেরপুর",
+                    note: "সাবেক আইন কর্মকর্তা, পূবালী ব্যাংক লি."
+                },
+                {
+                    name: "আফরোজী সাচ্চু শাহনেওয়াজ",
+                    designation: "সহকারী নিবন্ধক",
+                    workplace: "ঢাকা"
+                },
+                {
+                    name: "কাউসার আহমেদ",
+                    designation: "সহকারী কমিশনার",
+                    workplace: "রংপুর"
+                },
+                {
+                    name: "মাহমুদা আখিঁ",
+                    designation: "সহকারী জজ"
+                },
+                {
+                    name: "শান্ত দেব রয় অর্ণ",
+                    designation: "সহকারী জজ"
+                },
+                {
+                    name: "তানজিনা এলিন",
+                    designation: "সহকারী জজ"
+                }
+            ],
             special_responsibilities: null,
             fee: {
                 regular: 5000,
@@ -72,6 +109,7 @@ const DetailsSinglePage = ({ params }) => {
             id: "bjs19-full",
             course_name: "১৯তম বিজেএস পূর্ণাঙ্গ কোর্স",
             duration: "১ বছর",
+            active: true,
             start_date: "১ জুলাই ২০২৫",
             class_time: "রাত ৯:৩০",
             orientation_class: {
@@ -157,7 +195,7 @@ const DetailsSinglePage = ({ params }) => {
     const data = courses.find(item => item.id === id)
 
     return (
-        <div className='w-full bg-gray-50'> 
+        <div className='w-full bg-gray-50'>
             <div className="max-w-7xl mx-auto pt-24 px-4 min-h-screen">
                 {/* Course Name */}
                 <h1 className="text-center text-3xl font-bold text-blue-800 mb-8">{data.course_name}</h1>
@@ -237,22 +275,27 @@ const DetailsSinglePage = ({ params }) => {
                         </div>
 
                         {/* Admission Process Accordion */}
-                        <div className="collapse collapse-arrow bg-base-100 border border-base-300 rounded-xl mb-6">
-                            <input type="checkbox" />
-                            <div className="collapse-title text-lg font-semibold">
+                        <div className="collapse collapse-arrow bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl mb-6 shadow-sm">
+                            <input type="checkbox" className="peer" />
+
+                            <div className="collapse-title text-lg font-semibold text-gray-800 dark:text-gray-100 peer-checked:text-blue-600 transition-colors">
                                 ভর্তি প্রক্রিয়া
                             </div>
-                            <div className="collapse-content text-sm">
-                                <ul className="list-disc list-inside ml-4">
+
+                            <div className="collapse-content text-sm text-gray-700 dark:text-gray-300 px-4 pb-4 leading-relaxed">
+                                <ul className="list-disc pl-5 space-y-2">
                                     {(Array.isArray(data.admission_process)
                                         ? data.admission_process
-                                        : data.admission_process?.instructions)?.map((step, i) => (
-                                            <li key={i}>{step}</li>
-                                        ))}
+                                        : data.admission_process?.instructions
+                                    )?.map((step, index) => (
+                                        <li key={index}>{step}</li>
+                                    ))}
                                 </ul>
                             </div>
+
                         </div>
                     </div>
+
 
                     {/* Right Sidebar */}
                     <div className="w-full lg:w-[400px]">
@@ -279,12 +322,27 @@ const DetailsSinglePage = ({ params }) => {
                                 <li className="flex items-start gap-2">✅ <span>৬ টি প্রিন্টেড লেকচার বুক</span></li>
                             </ul>
 
+
                             {/* Enroll Button */}
-                            <Link href="https://docs.google.com/document/d/1EMzkfWY7AmRYSgJ1I4BDi0THLUFYOlvviC7h19YEvc4/edit?tab=t.0" passHref>
-                                <button className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
-                                    Google Form
-                                </button>
-                            </Link>
+                            {
+                                data?.active ?
+                                    <>
+                                        <Link href={`/AdmissionForm/${data.id}`}>
+                                            <button className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+                                                Enroll Now
+                                            </button>
+                                        </Link>
+                                    </>
+                                    :
+                                    <>
+                                        <button
+                                            className="w-full bg-red-600 text-white py-2 rounded-lg font-semibold transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+                                            disabled={data?.active}
+                                        >
+                                            Admission Closed
+                                        </button>
+                                    </>
+                            }
                         </div>
                     </div>
                 </div>

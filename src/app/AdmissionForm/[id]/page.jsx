@@ -1,24 +1,24 @@
-import Link from 'next/link';
 import React from 'react';
 
-export const metadata = {
-    title: 'সকল কোর্স || Sokol Course',
-    keywords: ['General Academy', 'GeneralBD', 'BD General Academy', 'all courses'],
-    description: 'All courses,Genetal Academy is a premier online coaching center dedicated to empowering aspiring legal professionals with the knowledge and skills they need to excel in competitive examinations. Specializing in law-focused education, Genetal Academy offers expertly designed courses for a wide range of legal exams, with a special emphasis on BJS',
-}
+const page = async ({ params }) => {
+    const id = await params.id
+    console.log(id)
 
-const SakalCourse = () => {
 
     const courses = [
         {
             id: "bjs18-general",
             course_name: "১৮তম বিজেএস জেনারেল কোর্স",
             duration: "১৮তম জুডিশিয়ারি লিখিত পরীক্ষার পর্যন্ত",
+            google_form: "https://docs.google.com/forms/d/e/1FAIpQLSfoybYVj9uEQY32oWGqKlJwGz5nd_W8NneSYgh9xQ5kj8H2Jw/viewform?embedded=true",
+            start_date: null,
+            class_time: "রাত ৯:৩০",
             orientation_class: {
                 date: "২৬ জুন ২০২৫",
                 time: "রাত ৯:৩০",
                 image: "https://i.ibb.co/SDRtmMJ7/18.jpg"
             },
+            modules: ["প্রিলিমিনারি", "লিখিত"],
             course_structure: {
                 subjects: ["বাংলা", "ইংরেজি", "গণিত", "বিজ্ঞান", "জেনারেল নলেজ"],
                 modules: ["প্রিলিমিনারি", "লিখিত"],
@@ -29,13 +29,21 @@ const SakalCourse = () => {
                     classes_per_week: 4,
                     exams_per_week: 2
                 },
-                recordings_provided: true
+                recordings_provided: true,
+                weekly_classes: null,
+                weekly_exams: null
             },
+            mentors: null,
+            special_responsibilities: null,
             fee: {
                 regular: 5000,
                 discounted: 3000,
                 discount_deadline: "২৫ জুন",
-                image: "https://i.ibb.co/SDRtmMJ7/18.jpg"
+                image: "https://i.ibb.co/SDRtmMJ7/18.jpg",
+                installment_option: {
+                    allowed: false,
+                    breakdown: []
+                }
             },
             admission_process: {
                 instructions: [
@@ -59,11 +67,23 @@ const SakalCourse = () => {
             duration: "১ বছর",
             start_date: "১ জুলাই ২০২৫",
             class_time: "রাত ৯:৩০",
+            google_form: "https://docs.google.com/forms/d/e/1FAIpQLScd1-m565GnLswUP9_WoJivTp_fQwv7l6827QtmM1tuJcKE9g/viewform?embedded=true",
+            orientation_class: {
+                date: null,
+                time: null,
+                image: null
+            },
             modules: ["প্রিলি", "লিখিত", "ভাইভা"],
             course_structure: {
+                subjects: null,
+                modules: null,
+                class_days: null,
+                class_time: null,
+                focus_areas: null,
+                weekly_schedule: null,
+                recordings_provided: true,
                 weekly_classes: 5,
-                weekly_exams: 2,
-                recordings_provided: true
+                weekly_exams: 2
             },
             mentors: [
                 {
@@ -114,57 +134,34 @@ const SakalCourse = () => {
                     breakdown: [6500, 6500]
                 }
             },
-            admission_process: [
-                "01325410258 (Bkash/Nagad) নম্বরে টাকা পাঠিয়ে লাস্ট ডিজিট বা ট্রানজেকশন আইডি জানাতে হবে",
-                "কনফার্ম হলে ক্লাস রেকর্ড গ্রুপে যুক্ত করা হবে"
-            ]
+            admission_process: {
+                instructions: [
+                    "01325410258 (Bkash/Nagad) নম্বরে টাকা পাঠিয়ে লাস্ট ডিজিট বা ট্রানজেকশন আইডি জানাতে হবে",
+                    "কনফার্ম হলে ক্লাস রেকর্ড গ্রুপে যুক্ত করা হবে"
+                ]
+            },
+            post_admission: {
+                facebook_groups_added: null
+            },
+            contact: null
         }
     ];
 
 
+    const data = courses.find(item => item.id === id)
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-10 px-4 place-content-center">
-            <div className="flex flex-wrap gap-6 justify-center ">
-                {courses.map((item) => (
-                    <Link href={`/sakalCourse/${item.id}`} key={item.id}>
-                        <div className="w-full max-w-sm">
-                            <div className="card w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 mt-10 rounded-xl overflow-hidden">
-                                <figure className="h-60 overflow-hidden">
-                                    <img
-                                        src={item.fee.image}
-                                        alt={item.course_name || "Course Image"}
-                                        className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
-                                    />
-                                </figure>
-                                <div className="card-body space-y-2 px-5 py-4">
-                                    <h2 className="card-title text-xl text-blue-700 dark:text-blue-300">{item.course_name}</h2>
-                                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                                        বিস্তৃত তথ্যের জন্য বিস্তারিত বাটনে ক্লিক করুন।
-                                    </p>
-                                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mt-4 space-y-2 sm:space-y-0 sm:space-x-4">
-                                        <div>
-                                            <p className="text-sm text-gray-500 dark:text-gray-300 line-through">
-                                                Regular Price: {item.fee?.regular?.toLocaleString()} BDT
-                                            </p>
-                                            <p className="text-lg font-bold text-gray-800 dark:text-white">
-                                                Now: {item.fee?.discounted?.toLocaleString()} BDT
-                                            </p>
-                                        </div>
-
-                                        <button className="mt-2 sm:mt-0 btn btn-sm bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-transform duration-200 rounded-md px-5 py-2 text-sm font-medium">
-                                            বিস্তারিত
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </Link>
-                ))}
+        <div className="w-full h-screen mt-16 px-4 sm:px-8">
+            <div className="w-full h-full rounded-xl overflow-hidden">
+                <iframe
+                    src={data.google_form}
+                    className="w-full h-full border-none"
+                    allowFullScreen
+                >
+                    Loading…
+                </iframe>
             </div>
         </div>
-
     );
 };
 
-export default SakalCourse;
+export default page;
