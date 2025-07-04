@@ -209,7 +209,7 @@ const DetailsSinglePage = ({ params }) => {
                             <p className="mb-1">মেয়াদ: {data.duration}</p>
                             {data.orientation_class && (
                                 <p className="mb-1">
-                                    ওরিয়েন্টেশন ক্লাস: {data.orientation_class.date} - {data.orientation_class.time}
+                                    ওরিয়েন্টেশন ক্লাস: {data.orientation_class?.date} - {data.orientation_class?.time}
                                 </p>
                             )}
                         </div>

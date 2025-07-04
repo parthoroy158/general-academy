@@ -6,7 +6,7 @@ export default function DashboardLayout({ children }) {
             <div className="flex flex-col lg:flex-row max-w-7xl mx-auto w-full bg-white ">
 
                 {/* Sidebar */}
-                <aside className="w-full lg:w-64 bg-base-100 dark:bg-white border-b lg:border-b-0 lg:border-r border-black dark:border-black px-4 py-6">
+                <aside className="w-full lg:w-64 bg-base-100 dark:bg-white border-b lg:border-b-0 lg:border-r border-none dark:border-black px-4 py-6">
                     <DashBoardNav />
                 </aside>
 

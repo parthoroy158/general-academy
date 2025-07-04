@@ -75,7 +75,7 @@ const Page = async ({ params }) => {
         {/* Previous Button */}
         <Link href={`/demoClass/dashboardNav/${video.id - 1}`} passHref>
           <button
-            className="btn btn-secondary flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 text-base font-semibold transition-all duration-200 ease-in-out hover:scale-[1.03] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="btn btn-secondary bg-blue-100 flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 text-black font-semibold transition-all duration-200 ease-in-out hover:scale-[1.03] disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={video.id <= 1}
           >
             <GrPrevious className="text-lg" />
@@ -86,7 +86,7 @@ const Page = async ({ params }) => {
         {/* Next Button */}
         <Link href={`/demoClass/dashboardNav/${video.id + 1}`} passHref>
           <button
-            className="btn btn-secondary flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 text-base font-semibold transition-all duration-200 ease-in-out hover:scale-[1.03]"
+            className="btn btn-secondary bg-blue-100 flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 text-black font-semibold transition-all duration-200 ease-in-out hover:scale-[1.03]"
           >
             Next
             <GrNext className="text-lg" />
