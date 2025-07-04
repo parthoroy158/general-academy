@@ -59,7 +59,7 @@ const Page = async ({ params }) => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12 bg-blue-100 rounded-2xl shadow-xl place-content-center">
+    <div className="max-w-4xl mx-auto px-6 py-12 bg-blue-100 rounded-2xl shadow-xl place-content-center ">
       <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 text-center place-content-center">
         {video.title}
       </h1>

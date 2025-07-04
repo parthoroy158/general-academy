@@ -13,7 +13,7 @@ export const metadata = {
   title: {
     default: ' Home || General Academy',
     keywords: ['General Academy', 'GeneralBD', 'BD General Academy'],
-    description: 'Genetal Academy is a premier online coaching center dedicated to empowering aspiring legal professionals with the knowledge and skills they need to excel in competitive examinations. Specializing in law-focused education, Genetal Academy offers expertly designed courses for a wide range of legal exams, with a special emphasis on BJS',
+    description: 'General Academy is a premier online coaching center dedicated to empowering aspiring legal professionals with the knowledge and skills they need to excel in competitive examinations. Specializing in law-focused education, General Academy offers expertly designed courses for a wide range of legal exams, with a special emphasis on BJS',
     template: '%s || General Academy',
   },
 }

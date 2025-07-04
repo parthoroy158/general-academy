@@ -19,9 +19,10 @@ const DetailsSinglePage = ({ params }) => {
         {
             id: "bjs18-general",
             course_name: "১৮তম বিজেএস জেনারেল কোর্স",
-            duration: "১৮তম জুডিশিয়ারি লিখিত পরীক্ষার পর্যন্ত",
+            duration: "লিখিত পরীক্ষার পর্যন্ত",
             start_date: null,
             active: false,
+            admission: false,
             class_time: "রাত ৯:৩০",
             orientation_class: {
                 date: "২৬ জুন ২০২৫",
@@ -108,8 +109,9 @@ const DetailsSinglePage = ({ params }) => {
         {
             id: "bjs19-full",
             course_name: "১৯তম বিজেএস পূর্ণাঙ্গ কোর্স",
-            duration: "১ বছর",
+            duration: "১বছর",
             active: true,
+            admission: true,
             start_date: "১ জুলাই ২০২৫",
             class_time: "রাত ৯:৩০",
             orientation_class: {
@@ -119,8 +121,8 @@ const DetailsSinglePage = ({ params }) => {
             },
             modules: ["প্রিলি", "লিখিত", "ভাইভা"],
             course_structure: {
-                subjects: null,
-                modules: null,
+                subjects: ["সব সাজেক্ট"],
+                modules: ["প্রিলিমিনারি", "লিখিত"],
                 class_days: null,
                 class_time: null,
                 focus_areas: null,
@@ -204,7 +206,7 @@ const DetailsSinglePage = ({ params }) => {
                     {/* Left/Main Content */}
                     <div className="flex-1 w-full">
                         {/* Orientation Info */}
-                        <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-6 shadow">
+                        {/* <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-6 shadow">
                             <p className="text-lg mb-2">কোর্স শুরু: {data.start_date}</p>
                             <p className="mb-1">মেয়াদ: {data.duration}</p>
                             {data.orientation_class && (
@@ -212,77 +214,153 @@ const DetailsSinglePage = ({ params }) => {
                                     ওরিয়েন্টেশন ক্লাস: {data.orientation_class?.date} - {data.orientation_class?.time}
                                 </p>
                             )}
+                        </div> */}
+                        <div className="stats shadow-xl w-full mb-3 flex flex-col md:flex-row gap-4 text-center">
+                            <div className="stat flex-1 dark:text-black">
+                                <div className="stat-figure text-primary">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        className="inline-block h-8 w-8 stroke-current"
+                                    >
+                                    </svg>
+                                </div>
+                                <div className="stat-title dark:text-black font-bold text-xl">কোর্স শুরু</div>
+                                <div className="stat-value text-2xl  text-primary">{data.start_date}</div>
+                                {/* <div className="stat-desc dark:text-black">21% more than last month</div> */}
+                            </div>
+
+                            <div className="stat flex-1">
+                                <div className="stat-figure text-secondary">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        className="inline-block h-8 w-8 stroke-current"
+                                    >
+                                    </svg>
+                                </div>
+                                <div className="stat-title dark:text-black font-bold text-xl">মেয়াদ</div>
+                                <div className="stat-value text-secondary text-2xl">{data.duration}</div>
+                                {/* <div className="stat-desc">21% more than last month</div> */}
+                            </div>
+
+                            <div className="stat flex-1">
+                                <div className="stat-figure text-secondary">
+                                    {/* <div className="avatar avatar-online">
+                                        <div className="w-16 rounded-full">
+                                            <img src="https://img.daisyui.com/images/profile/demo/anakeen@192.webp" />
+                                        </div>
+                                    </div> */}
+                                </div>
+                                <div className="stat-title font-bold text-xl text-black">Admission</div>
+                                <div className={data.admission ? "text-green-600 text-2xl font-bold" : "text-red-500 text-2xl font-bold"}>{data.admission ? <>Open</> : <>Close</>}</div>
+
+                                <div className="stat-desc text-secondary">{data.admission}</div>
+                            </div>
                         </div>
+
 
                         {/* Course Structure */}
                         {data.course_structure && (
-                            <div className="bg-white border rounded-xl p-5 shadow-sm mb-6">
-                                <h2 className="text-xl font-semibold mb-3 text-blue-700">কোর্স কাঠামো</h2>
+                            <div className="bg-white rounded-xl p-6 shadow-2xl mt-5 mb-6">
+                                <h2 className="text-xl font-semibold mb-6 text-blue-700">কোর্স কাঠামো</h2>
 
-                                <div className="grid md:grid-cols-2 gap-4">
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    {/* বিষয়সমূহ */}
                                     <div>
-                                        <h3 className="font-semibold">বিষয়সমূহ:</h3>
-                                        <ul className="list-disc list-inside ml-2">
-                                            {data.course_structure.subjects?.map((item, i) => <li key={i}>{item}</li>)}
+                                        <h3 className="font-semibold mb-1">বিষয়সমূহ:</h3>
+                                        <ul className="list-disc list-inside text-gray-700 ml-2 space-y-1">
+                                            {data.course_structure?.subjects?.map((item, i) => (
+                                                <li key={i}>{item}</li>
+                                            ))}
                                         </ul>
                                     </div>
+
+                                    {/* মডিউল */}
                                     <div>
-                                        <h3 className="font-semibold">মডিউল:</h3>
-                                        <ul className="list-disc list-inside ml-2">
-                                            {data.course_structure.modules?.map((item, i) => <li key={i}>{item}</li>)}
+                                        <h3 className="font-semibold mb-1">মডিউল:</h3>
+                                        <ul className="list-disc list-inside text-gray-700 ml-2 space-y-1">
+                                            {data.course_structure.modules?.map((item, i) => (
+                                                <li key={i}>{item}</li>
+                                            ))}
                                         </ul>
                                     </div>
+
+                                    {/* ক্লাসের দিন */}
                                     <div>
-                                        <h3 className="font-semibold">ক্লাসের দিন:</h3>
-                                        <p>{data.course_structure.class_days?.join(', ')}</p>
+                                        <h3 className="font-semibold mb-1">ক্লাসের দিন:</h3>
+                                        <p className="text-gray-700">{data.course_structure.class_days?.join(", ")}</p>
                                     </div>
+
+                                    {/* ফোকাস এরিয়া */}
                                     <div>
-                                        <h3 className="font-semibold">ফোকাস এরিয়া:</h3>
-                                        <p>{data.course_structure.focus_areas?.join(', ')}</p>
+                                        <h3 className="font-semibold mb-1">ফোকাস এরিয়া:</h3>
+                                        <p className="text-gray-700">{data.course_structure.focus_areas?.join(", ")}</p>
                                     </div>
+
+                                    {/* ক্লাস টাইম */}
                                     <div>
-                                        <h3 className="font-semibold">ক্লাস টাইম:</h3>
-                                        <p>{data.course_structure.class_time}</p>
+                                        <h3 className="font-semibold mb-1">ক্লাস টাইম:</h3>
+                                        <p className="text-gray-700">{data.course_structure.class_time}</p>
                                     </div>
+
+                                    {/* সাপ্তাহিক রুটিন */}
                                     <div>
-                                        <h3 className="font-semibold">সাপ্তাহিক রুটিন:</h3>
-                                        <ul className="list-disc list-inside ml-2">
+                                        <h3 className="font-semibold mb-1">সাপ্তাহিক রুটিন:</h3>
+                                        <ul className="list-disc list-inside text-gray-700 ml-2 space-y-1">
                                             <li>ক্লাস: {data.course_structure.weekly_schedule?.classes_per_week} দিন</li>
                                             <li>পরীক্ষা: {data.course_structure.weekly_schedule?.exams_per_week} দিন</li>
                                         </ul>
                                     </div>
+
+                                    {/* রেকর্ডিং */}
                                     <div>
-                                        <h3 className="font-semibold">রেকর্ডিং:</h3>
-                                        <p>{data.course_structure.recordings_provided ? "প্রতিটি ক্লাসের রেকর্ডিং থাকবে" : "রেকর্ডিং প্রদান করা হবে না"}</p>
+                                        <h3 className="font-semibold mb-1">রেকর্ডিং:</h3>
+                                        <p className="text-gray-700">
+                                            {data.course_structure.recordings_provided
+                                                ? "প্রতিটি ক্লাসের রেকর্ডিং থাকবে"
+                                                : "রেকর্ডিং প্রদান করা হবে না"}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
+
                         )}
 
                         {/* Mentor Team */}
-                        <div className="bg-gray-100 border rounded-xl p-5 mb-6">
-                            <h2 className="text-xl font-semibold mb-4 text-blue-700">মেন্টর টিম</h2>
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div className="mt-5 bg-white  rounded-xl p-5 mb-6">
+                            <h2 className="text-xl font-semibold mb-4 text-blue-700 text-center">মেন্টর টিম</h2>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-center place-content-center items-stretch">
                                 {data.mentors?.map((mentor, i) => (
-                                    <div key={i} className="border p-3 rounded-lg bg-white shadow-sm">
-                                        <p className="font-semibold text-blue-800">{mentor.name}</p>
-                                        <p>{mentor.designation}</p>
-                                        {mentor.workplace && <p>{mentor.workplace}</p>}
-                                        {mentor.note && <p className="text-sm text-gray-600">{mentor.note}</p>}
+                                    <div
+                                        key={i}
+                                        className=" p-6 rounded-xl bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center space-y-2"
+                                    >
+                                        {/* Optional avatar */}
+                                        {/* <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-blue-800 font-bold text-xl">
+                                        {mentor.name?.charAt(0)}
+                                        </div> */}
+                                        <p className="text-lg font-bold text-blue-800">{mentor.name}</p>
+                                        <p className="text-gray-700 text-sm">{mentor.designation}</p>
+                                        {mentor.workplace && <p className="text-gray-600 text-sm">{mentor.workplace}</p>}
+                                        {mentor.note && <p className="text-sm text-gray-500">{mentor.note}</p>}
                                     </div>
                                 ))}
                             </div>
+
                         </div>
 
                         {/* Admission Process Accordion */}
-                        <div className="collapse collapse-arrow bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl mb-6 shadow-sm">
+                        <div className="collapse collapse-arrow bg-white dark:bg-white border border-gray-200 dark:border-gray-700 rounded-xl mb-6 shadow-sm">
                             <input type="checkbox" className="peer" />
 
-                            <div className="collapse-title text-lg font-semibold text-gray-800 dark:text-gray-100 peer-checked:text-blue-600 transition-colors">
+                            <div className="collapse-title text-lg font-semibold text-gray-800 dark:text-black peer-checked:text-blue-600 transition-colors">
                                 ভর্তি প্রক্রিয়া
                             </div>
 
-                            <div className="collapse-content text-sm text-gray-700 dark:text-gray-300 px-4 pb-4 leading-relaxed">
+                            <div className="collapse-content text-sm text-gray-700 dark:text-black px-4 pb-4 leading-relaxed">
                                 <ul className="list-disc pl-5 space-y-2">
                                     {(Array.isArray(data.admission_process)
                                         ? data.admission_process

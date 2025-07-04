@@ -45,7 +45,7 @@ const DashBoardNav = ({ activeVideoId }) => {
 
   return (
     <nav className="w-full lg:w-full md:min-h-screen bg-gray-100 rounded shadow-sm dark:bg-gray-100 border-b lg:border-b-0 lg:border-r border-white dark:border-white px-6 py-6">
-      <h2 className="text-l font-bold text-gray-900 dark:text-black mb-5 uppercase bg-blue-100 rounded p-3">Video Categories</h2>
+      <h2 className="text-sm font-bold text-gray-900 dark:text-black mb-5 uppercase bg-blue-100 rounded p-3">Demo Classes Topic</h2>
       <ul className="space-y-4 text-black">
         {
           YouTubeVideo.map(item => {
@@ -53,7 +53,7 @@ const DashBoardNav = ({ activeVideoId }) => {
             const isActive = item.id === activeVideoId;
 
             return (
-              <li key={item.id}>
+              <li key={item.id} className='active'>
                 <Link
                   href={`/demoClass/dashboardNav/${item.id}`}
                   className={`block px-4 rounded-lg text-lg transition-all duration-200 border-dotted ease-in-out${isActive

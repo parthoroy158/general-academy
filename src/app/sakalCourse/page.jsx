@@ -123,7 +123,7 @@ const SakalCourse = () => {
 
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-100 py-10 px-4 place-content-center">
+        <div className="min-h-screen py-10 px-4 place-content-center">
             <div className="flex flex-wrap gap-6 justify-center ">
                 {courses.map((item) => (
                     <Link href={`/sakalCourse/${item.id}`} key={item.id}>
