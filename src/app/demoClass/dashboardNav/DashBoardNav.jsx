@@ -44,33 +44,36 @@ const DashBoardNav = ({ activeVideoId }) => {
   ];
 
   return (
-    <nav className="w-full lg:w-full md:min-h-screen bg-gray-100 rounded shadow-sm dark:bg-gray-100 border-b lg:border-b-0 lg:border-r border-white dark:border-white px-6 py-6">
-      <h2 className="text-sm font-bold text-gray-900 dark:text-black mb-5 uppercase bg-blue-100 rounded p-3">Demo Classes Topic</h2>
-      <ul className="space-y-4 text-black">
-        {
-          YouTubeVideo.map(item => {
-            // Determine if the current link is active based on the prop
-            const isActive = item.id === activeVideoId;
+    <nav className="w-full sticky top-0 md:min-h-screen bg-white dark:bg-gray-100 border-b md:border-r border-gray-200 px-6 py-6 rounded shadow-md">
+      <h2 className="text-xs font-semibold text-blue-700 uppercase tracking-wide mb-4 bg-blue-300 p-2 rounded-md">
+        Demo Class Topics
+      </h2>
 
-            return (
-              <li key={item.id} className='active'>
-                <Link
-                  href={`/demoClass/dashboardNav/${item.id}`}
-                  className={`block px-4 rounded-lg text-lg transition-all duration-200 border-dotted ease-in-out${isActive
-                    ? 'text-blue-600 dark:text-black font-extrabold bg-blue-100 border-l-4 border-blue-600'
-                    : 'text-gray-700 dark:text-black hover:text-blue-600 border-dotted hover:bg-blue-50 hover:pl-5 font-medium'
-                    }`}
-                  aria-current={isActive ? 'page' : undefined}
-                >
-                  {item.language}
-                </Link>
+      <ul className="space-y-2 text-base text-gray-800">
+        {YouTubeVideo.map((item) => {
+          const isActive = item.id === activeVideoId;
 
-              </li>
-            );
-          })
-        }
+          return (
+            <li key={item.id}>
+              <Link
+                href={`/demoClass/dashboardNav/${item.id}`}
+                className={`block px-4 py-2 rounded-lg transition-all duration-200 ease-in-out bg-blue-100 p-2 
+            ${isActive
+                    ? 'bg-blue-600 text-white font-semibold shadow-md border-l-4 border-blue-800 pl-5'
+                    : 'text-gray-700 hover:text-blue-700 hover:bg-blue-50'
+                  }
+            hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-300`}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {item.language}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
+
     </nav>
+
   );
 };
 

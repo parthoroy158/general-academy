@@ -13,7 +13,7 @@ const Body = () => {
                 </p>
 
                 <div className="flex flex-col md:flex-row gap-10 justify-center items-center mt-20 mb-20">
-                    <Link href="/sakalCourse/bjs18-general">
+                    <Link href="/allCourses/bjs18-general">
                         <div className="w-80 bg-white dark:bg-gray-100 rounded shadow-sm hover:shadow-2xl hover:-translate-y-2 transform transition-all duration-300 ease-in-out hover:ring-1 hover:ring-pink-500">
                             <figure className="p-5">
                                 <img

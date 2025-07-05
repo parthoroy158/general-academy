@@ -67,7 +67,7 @@ const page = async ({ params }) => {
             duration: "১ বছর",
             start_date: "১ জুলাই ২০২৫",
             class_time: "রাত ৯:৩০",
-            google_form: "https://docs.google.com/forms/d/e/1FAIpQLScd1-m565GnLswUP9_WoJivTp_fQwv7l6827QtmM1tuJcKE9g/viewform?embedded=true",
+            google_form: "https://docs.google.com/forms/d/e/1FAIpQLSeb6ztjX-KjhrwlqJYLOIyGUAXaI4v8wFt3X0cR1rkyhp52pA/viewform?embedded=true",
             orientation_class: {
                 date: null,
                 time: null,

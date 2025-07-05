@@ -1,4 +1,3 @@
-
 import IframeVideo from '@/app/components/IframeVideo';
 import Link from 'next/link';
 import React from 'react';
@@ -18,7 +17,7 @@ const DetailsSinglePage = ({ params }) => {
     const courses = [
         {
             id: "bjs18-general",
-            course_name: "১৮তম বিজেএস জেনারেল কোর্স",
+            course_name: "১৮ তম বিজেএস জেনারেল কোর্স",
             duration: "লিখিত পরীক্ষার পর্যন্ত",
             start_date: null,
             active: false,
@@ -108,8 +107,8 @@ const DetailsSinglePage = ({ params }) => {
         },
         {
             id: "bjs19-full",
-            course_name: "১৯তম বিজেএস পূর্ণাঙ্গ কোর্স",
-            duration: "১বছর",
+            course_name: "১৯ তম বিজেএস পূর্ণাঙ্গ কোর্স",
+            duration: "১ বছর",
             active: true,
             admission: true,
             start_date: "১ জুলাই ২০২৫",
@@ -200,7 +199,13 @@ const DetailsSinglePage = ({ params }) => {
         <div className='w-full bg-gray-50'>
             <div className="max-w-7xl mx-auto pt-24 px-4 min-h-screen">
                 {/* Course Name */}
-                <h1 className="text-center text-3xl font-bold text-blue-800 mb-8">{data.course_name}</h1>
+                <div className="flex items-center justify-center mb-8">
+                    <div className="flex-grow border-t border-blue-300"></div>
+                    <h1 className="mx-4 text-3xl md:text-4xl font-bold text-blue-800 whitespace-nowrap">
+                        {data.course_name}
+                    </h1>
+                    <div className="flex-grow border-t border-blue-300"></div>
+                </div>
 
                 <div className="flex flex-col lg:flex-row gap-8 bg-gray-50 text-gray-800">
                     {/* Left/Main Content */}
@@ -226,7 +231,7 @@ const DetailsSinglePage = ({ params }) => {
                                     >
                                     </svg>
                                 </div>
-                                <div className="stat-title dark:text-black font-bold text-xl">কোর্স শুরু</div>
+                                <div className="stat-title dark:text-black font-bold text-lg">কোর্স শুরু:</div>
                                 <div className="stat-value text-2xl  text-primary">{data.start_date}</div>
                                 {/* <div className="stat-desc dark:text-black">21% more than last month</div> */}
                             </div>
@@ -241,7 +246,7 @@ const DetailsSinglePage = ({ params }) => {
                                     >
                                     </svg>
                                 </div>
-                                <div className="stat-title dark:text-black font-bold text-xl">মেয়াদ</div>
+                                <div className="stat-title dark:text-black font-bold text-lg">মেয়াদ:</div>
                                 <div className="stat-value text-secondary text-2xl">{data.duration}</div>
                                 {/* <div className="stat-desc">21% more than last month</div> */}
                             </div>
@@ -254,7 +259,7 @@ const DetailsSinglePage = ({ params }) => {
                                         </div>
                                     </div> */}
                                 </div>
-                                <div className="stat-title font-bold text-xl text-black">Admission</div>
+                                <div className="stat-title font-bold text-xl text-black text-lg">Admission:</div>
                                 <div className={data.admission ? "text-green-600 text-2xl font-bold" : "text-red-500 text-2xl font-bold"}>{data.admission ? <>Open</> : <>Close</>}</div>
 
                                 <div className="stat-desc text-secondary">{data.admission}</div>
@@ -264,14 +269,16 @@ const DetailsSinglePage = ({ params }) => {
 
                         {/* Course Structure */}
                         {data.course_structure && (
-                            <div className="bg-white rounded-xl p-6 shadow-2xl mt-5 mb-6">
-                                <h2 className="text-xl font-semibold mb-6 text-blue-700">কোর্স কাঠামো</h2>
+                            <div className="bg-white rounded-2xl p-6 shadow-xl mt-6 mb-8">
+                                <h2 className="text-2xl font-bold mb-6 text-blue-800 border-b pb-2 text-center">
+                                    🧩 কোর্স কাঠামো
+                                </h2>
 
-                                <div className="grid md:grid-cols-2 gap-6">
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {/* বিষয়সমূহ */}
-                                    <div>
-                                        <h3 className="font-semibold mb-1">বিষয়সমূহ:</h3>
-                                        <ul className="list-disc list-inside text-gray-700 ml-2 space-y-1">
+                                    <div className="bg-gray-50 rounded-xl p-4">
+                                        <h3 className="font-semibold mb-2 text-blue-600">📚 বিষয়সমূহ</h3>
+                                        <ul className="list-disc list-inside text-gray-800 space-y-1">
                                             {data.course_structure?.subjects?.map((item, i) => (
                                                 <li key={i}>{item}</li>
                                             ))}
@@ -279,46 +286,51 @@ const DetailsSinglePage = ({ params }) => {
                                     </div>
 
                                     {/* মডিউল */}
-                                    <div>
-                                        <h3 className="font-semibold mb-1">মডিউল:</h3>
-                                        <ul className="list-disc list-inside text-gray-700 ml-2 space-y-1">
-                                            {data.course_structure.modules?.map((item, i) => (
+                                    <div className="bg-gray-50 rounded-xl p-4">
+                                        <h3 className="font-semibold mb-2 text-blue-600">🗂️ মডিউল</h3>
+                                        <ul className="list-disc list-inside text-gray-800 space-y-1">
+                                            {data.course_structure?.modules?.map((item, i) => (
                                                 <li key={i}>{item}</li>
                                             ))}
                                         </ul>
                                     </div>
 
                                     {/* ক্লাসের দিন */}
-                                    <div>
-                                        <h3 className="font-semibold mb-1">ক্লাসের দিন:</h3>
-                                        <p className="text-gray-700">{data.course_structure.class_days?.join(", ")}</p>
+                                    <div className="bg-gray-50 rounded-xl p-4">
+                                        <h3 className="font-semibold mb-2 text-blue-600">📅 ক্লাসের দিন</h3>
+                                        <p className="text-gray-800">{data.course_structure.class_days?.join(", ")}</p>
                                     </div>
 
                                     {/* ফোকাস এরিয়া */}
-                                    <div>
-                                        <h3 className="font-semibold mb-1">ফোকাস এরিয়া:</h3>
-                                        <p className="text-gray-700">{data.course_structure.focus_areas?.join(", ")}</p>
+                                    <div className="bg-gray-50 rounded-xl p-4">
+                                        <h3 className="font-semibold mb-2 text-blue-600">🎯 ফোকাস এরিয়া</h3>
+                                        <p className="text-gray-800">{data.course_structure.focus_areas?.join(", ")}</p>
                                     </div>
 
                                     {/* ক্লাস টাইম */}
-                                    <div>
-                                        <h3 className="font-semibold mb-1">ক্লাস টাইম:</h3>
-                                        <p className="text-gray-700">{data.course_structure.class_time}</p>
-                                    </div>
+                                    {
+                                        data.course_structure.class_time == null ? <></> : <>
+                                            <div className="bg-gray-50 rounded-xl p-4">
+                                                <h3 className="font-semibold mb-2 text-blue-600">⏰ ক্লাস টাইম</h3>
+                                                <p className="text-gray-800">{data.course_structure.class_time}</p>
+                                            </div>
+
+                                        </>
+                                    }
 
                                     {/* সাপ্তাহিক রুটিন */}
-                                    <div>
-                                        <h3 className="font-semibold mb-1">সাপ্তাহিক রুটিন:</h3>
-                                        <ul className="list-disc list-inside text-gray-700 ml-2 space-y-1">
+                                    <div className="bg-gray-50 rounded-xl p-4">
+                                        <h3 className="font-semibold mb-2 text-blue-600">🗓️ সাপ্তাহিক রুটিন</h3>
+                                        <ul className="list-disc list-inside text-gray-800 space-y-1">
                                             <li>ক্লাস: {data.course_structure.weekly_schedule?.classes_per_week} দিন</li>
                                             <li>পরীক্ষা: {data.course_structure.weekly_schedule?.exams_per_week} দিন</li>
                                         </ul>
                                     </div>
 
                                     {/* রেকর্ডিং */}
-                                    <div>
-                                        <h3 className="font-semibold mb-1">রেকর্ডিং:</h3>
-                                        <p className="text-gray-700">
+                                    <div className="bg-gray-50 rounded-xl p-4">
+                                        <h3 className="font-semibold mb-2 text-blue-600">🎥 রেকর্ডিং</h3>
+                                        <p className="text-gray-800">
                                             {data.course_structure.recordings_provided
                                                 ? "প্রতিটি ক্লাসের রেকর্ডিং থাকবে"
                                                 : "রেকর্ডিং প্রদান করা হবে না"}
@@ -326,7 +338,6 @@ const DetailsSinglePage = ({ params }) => {
                                     </div>
                                 </div>
                             </div>
-
                         )}
 
                         {/* Mentor Team */}
@@ -382,7 +393,7 @@ const DetailsSinglePage = ({ params }) => {
                             <div className="aspect-w-16 aspect-h-9">
                                 <iframe
                                     className="rounded-md w-full h-52"
-                                    src="https://www.youtube.com/embed/dY2bBBhIEvk?si=z1rCtJFEoBlO8Qfw"
+                                    src="https://www.youtube.com/embed/dY2bBBhIEfghvk?si=z1rCtJFEoBlO8Qfw"
                                     title="New Admission Process"
                                     frameBorder="0"
                                     allowFullScreen
@@ -392,12 +403,14 @@ const DetailsSinglePage = ({ params }) => {
 
                             {/* Course Features */}
                             <ul className="space-y-2 text-sm sm:text-base text-gray-800">
-                                <li className="flex items-start gap-2">✅ <span>১৮০+ লাইভ ক্লাস</span></li>
-                                <li className="flex items-start gap-2">✅ <span>১৪০+ ক্লাস টেস্ট</span></li>
-                                <li className="flex items-start gap-2">✅ <span>৮০০০+ প্রশ্নের প্রশ্নব্যাংক</span></li>
-                                <li className="flex items-start gap-2">✅ <span>৪০+ ভোকাবুলারি কুইজ গেম</span></li>
-                                <li className="flex items-start gap-2">✅ <span>২৪/৭ টেলিগ্রাম মেন্টর সাপোর্ট</span></li>
-                                <li className="flex items-start gap-2">✅ <span>৬ টি প্রিন্টেড লেকচার বুক</span></li>
+                                <li className="flex items-start gap-2 font-bold"> <span>
+                                    নিম্নের নিচে বর্ণিত উপায়ে ফি পরিশোধ করুন:
+                                   
+                                    
+                                </span></li>
+                                <li className="flex items-start gap-2">📌<span>Bkash: বিকাশ থেকে 'Send Money' অপশন সিলেক্ট করে 01325-410258 নাম্বারে সেন্ড মানি করুন।</span></li>
+                                <li className="flex items-start gap-2"> 📌<span>Nagad: নগদ থেকে 'Send Money' অপশন সিলেক্ট করে 01325-410258 নাম্বারে সেন্ড মানি করুন।</span></li>
+                                <li className="flex items-start gap-2"> <span className='italic'>পেমেন্ট করে ট্রানজেকশন আইডিসহ ফর্মটি ফিলাপ করে সাবমিট করুন। ⤵️</span></li>
                             </ul>
 
 

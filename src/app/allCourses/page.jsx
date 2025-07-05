@@ -7,7 +7,7 @@ export const metadata = {
     description: 'All courses,Genetal Academy is a premier online coaching center dedicated to empowering aspiring legal professionals with the knowledge and skills they need to excel in competitive examinations. Specializing in law-focused education, Genetal Academy offers expertly designed courses for a wide range of legal exams, with a special emphasis on BJS',
 }
 
-const SakalCourse = () => {
+const allCourses = () => {
 
     const courses = [
         {
@@ -123,23 +123,23 @@ const SakalCourse = () => {
 
 
     return (
-        <div className="min-h-screen py-10 px-4 place-content-center">
+        <div className="min-h-screen py-10 px-4 place-content-center bg-white">
             <div className="flex flex-wrap gap-6 justify-center ">
                 {courses.map((item) => (
-                    <Link href={`/sakalCourse/${item.id}`} key={item.id}>
+                    <Link href={`/allCourses/${item.id}`} key={item.id}>
                         <div className="w-full max-w-sm">
-                            <div className="card w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 mt-10 rounded-xl overflow-hidden">
+                            <div className="card w-full h-90 bg-white dark:bg-gray-300 text-white dark:text-white shadow-xl hover:shadow-2xl transition-shadow duration-300 mt-10 rounded-xl overflow-hidden">
                                 <figure className="h-60 overflow-hidden">
                                     <img
                                         src={item.fee.image}
                                         alt={item.course_name || "Course Image"}
-                                        className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                                        className="object-cover w-full h-45 transition-transform duration-300 hover:scale-105"
                                     />
                                 </figure>
                                 <div className="card-body space-y-2 px-5 py-4">
                                     <h2 className="card-title text-xl text-blue-700 dark:text-blue-300">{item.course_name}</h2>
-                                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                                        বিস্তৃত তথ্যের জন্য বিস্তারিত বাটনে ক্লিক করুন।
+                                    <p className="text-sm text-gray-600 dark:text-white">
+                                        বিস্তারিত তথ্যের জন্য বিস্তারিত বাটনে ক্লিক করুন।
                                     </p>
                                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mt-4 space-y-2 sm:space-y-0 sm:space-x-4">
                                         <div>
@@ -151,7 +151,7 @@ const SakalCourse = () => {
                                             </p>
                                         </div>
 
-                                        <button className="mt-2 sm:mt-0 btn btn-sm bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-transform duration-200 rounded-md px-5 py-2 text-sm font-medium">
+                                        <button className="mt-2 sm:mt-0 btn btn-sm rounded-2xl bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-transform duration-200 px-5 py-2 text-sm font-medium">
                                             বিস্তারিত
                                         </button>
                                     </div>
@@ -167,4 +167,4 @@ const SakalCourse = () => {
     );
 };
 
-export default SakalCourse;
+export default allCourses;

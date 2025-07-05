@@ -1,59 +1,40 @@
 "use client"
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
 const Navbar = () => {
-    // const handleClick = (e) => {
-    //     e.preventDefault();
-    //     window.scrollTo({
-    //         top: document.body.scrollHeight,
-    //         behavior: 'smooth' // Smooth scroll to bottom
-    //     });
-    // };
+    const pathname = usePathname()
+
+    const navItems = [
+        { href: '/', label: 'হোম' },
+        { href: '/allCourses', label: 'সকল কোর্স' },
+        { href: '/aboutUs', label: 'আমাদের সম্পর্কে' },
+        { href: '/demoClass', label: 'ডেমো ক্লাস' },
+        { href: '/contactUs', label: 'যোগাযোগ', isButton: true },
+    ]
+
 
     const navOptions = (
         <nav className="w-full">
-            <ul className="flex flex-col md:flex-row md:gap-2 font-medium  dark:text-black-100 text-black">
-                <li>
-                    <Link
-                        href="/"
-                        className="block px-4 py-2 rounded-md hover:bg-blue-200 transition"
-                    >
-                        হোম
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        href="/sakalCourse"
-                        className="block px-4 py-2 rounded-md hover:bg-blue-200 transition"
-                    >
-                        সকল কোর্স
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        href="/aboutUs"
-                        className="block px-4 py-2 rounded-md hover:bg-blue-200 transition"
-                    >
-                        আমাদের সম্পর্কে
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        href="/demoClass"
-                        className="block px-4 py-2 rounded-md hover:bg-blue-200 transition"
-                    >
-                        ডেমো ক্লাস
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        href="/contactUs"
-                        className="block px-4 py-2 rounded-md hover:bg-blue-200 transition"
-                    >
-                        <button >যোগাযোগ</button>
-                    </Link>
-                </li>
+            <ul className="flex flex-col md:flex-row md:gap-2 font-medium text-black dark:text-black">
+                {navItems.map(({ href, label, isButton }) => {
+                    const isActive = pathname === href
+
+                    return (
+                        <li key={href}>
+                            <Link
+                                href={href}
+                                className={`block px-4 py-2 rounded-md transition ${isActive
+                                        ? 'bg-blue-400 text-white font-semibold'
+                                        : 'hover:bg-blue-200'
+                                    }`}
+                            >
+                                {isButton ? <button>{label}</button> : label}
+                            </Link>
+                        </li>
+                    )
+                })}
             </ul>
         </nav>
     );
@@ -83,7 +64,7 @@ const Navbar = () => {
                         {/* Mobile Dropdown Menu */}
                         <ul
                             tabIndex={0}
-                            className="menu  menu-sm dropdown-content mt-3 z-30 p-2  shadow-lg bg-white dark:bg-white rounded-box w-max"
+                            className="menu scrollbar-hide  menu-sm dropdown-content mt-3 z-30 p-2  shadow-lg bg-white dark:bg-white rounded-box w-max"
                         >
                             {navOptions}
                         </ul>
