@@ -107,7 +107,7 @@ const DetailsSinglePage = ({ params }) => {
         },
         {
             id: "bjs19-full",
-            course_name: "১৯ তম বিজেএস পূর্ণাঙ্গ কোর্স",
+            course_name: "১৯ তম বি.জে.এস পূর্ণাঙ্গ কোর্স",
             duration: "১ বছর",
             active: true,
             admission: true,
@@ -197,11 +197,11 @@ const DetailsSinglePage = ({ params }) => {
 
     return (
         <div className='w-full bg-gray-50'>
-            <div className="max-w-7xl mx-auto pt-24 px-4 min-h-screen">
+            <div className="max-w-7xl mx-auto pt-1 px-4 min-h-screen">
                 {/* Course Name */}
                 <div className="flex items-center justify-center mb-8">
                     <div className="flex-grow border-t border-blue-300"></div>
-                    <h1 className="mx-4 text-3xl md:text-4xl font-bold text-blue-800 whitespace-nowrap">
+                    <h1 className="mx-4 text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800 break-words">
                         {data.course_name}
                     </h1>
                     <div className="flex-grow border-t border-blue-300"></div>
@@ -405,8 +405,8 @@ const DetailsSinglePage = ({ params }) => {
                             <ul className="space-y-2 text-sm sm:text-base text-gray-800">
                                 <li className="flex items-start gap-2 font-bold"> <span>
                                     নিম্নের নিচে বর্ণিত উপায়ে ফি পরিশোধ করুন:
-                                   
-                                    
+
+
                                 </span></li>
                                 <li className="flex items-start gap-2">📌<span>Bkash: বিকাশ থেকে 'Send Money' অপশন সিলেক্ট করে 01325-410258 নাম্বারে সেন্ড মানি করুন।</span></li>
                                 <li className="flex items-start gap-2"> 📌<span>Nagad: নগদ থেকে 'Send Money' অপশন সিলেক্ট করে 01325-410258 নাম্বারে সেন্ড মানি করুন।</span></li>

@@ -8,15 +8,15 @@ const AllCoursesNav = () => {
 
     const tabs = [
         { label: 'All Courses', href: '/allCourses' },
-        { label: 'বিজেএস প্রস্তুতি', href: '/allCourses/bjsCourses' },
+        { label: 'বি.জে.এস প্রস্তুতি', href: '/allCourses/bjsCourses' },
         { label: 'এক্সাম ব্যাচ', href: '/allCourses/exam' },
-        { label: 'বার কাউন্সিল প্রস্তুতি', href: '/allCourses/barCouncil' },
+        { label: 'বার কাউন্সিল প্রস্তুতি', href: '/allCourses/bjsCourses' },
     ];
 
 
 
     return (
-        <div className="mt-10 text-black px-4">
+        <div className="mt-5 text-black px-4">
             <div className="md:flex md:gap-5 justify-center ">
 
                 {

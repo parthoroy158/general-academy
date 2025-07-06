@@ -35,7 +35,7 @@ const allCourses = () => {
                 regular: 5000,
                 discounted: 3000,
                 discount_deadline: "২৫ জুন",
-                image: "https://i.ibb.co/SDRtmMJ7/18.jpg"
+                image: "https://i.ibb.co/7hdgKtR/18th-BJS-Website-poster.jpg"
             },
             admission_process: {
                 instructions: [
@@ -108,7 +108,7 @@ const allCourses = () => {
                 regular: 15000,
                 discounted: 13000,
                 discount_deadline: "৩০ জুন",
-                image: "https://i.ibb.co/4wR48YbQ/19.jpg",
+                image: "https://i.ibb.co/0RYCmJ7J/19th-BJS-Website-poster.jpg",
                 installment_option: {
                     allowed: true,
                     breakdown: [6500, 6500]
@@ -123,39 +123,45 @@ const allCourses = () => {
 
 
     return (
-        <div className="min-h-screen py-10 px-4 place-content-center bg-white">
-            <div className="flex flex-wrap gap-6 justify-center ">
-                {courses.map((item) => (
-                    <Link href={`/allCourses/${item.id}`} key={item.id}>
-                        <div className="w-full max-w-sm">
-                            <div className="card w-full h-90 bg-white dark:bg-gray-300 text-white dark:text-white shadow-xl hover:shadow-2xl transition-shadow duration-300 mt-10 rounded-xl overflow-hidden">
-                                <figure className="h-60 overflow-hidden">
-                                    <img
-                                        src={item.fee.image}
-                                        alt={item.course_name || "Course Image"}
-                                        className="object-cover w-full h-45 transition-transform duration-300 hover:scale-105"
-                                    />
-                                </figure>
-                                <div className="card-body space-y-2 px-5 py-4">
-                                    <h2 className="card-title text-xl text-blue-700 dark:text-blue-300">{item.course_name}</h2>
-                                    <p className="text-sm text-gray-600 dark:text-white">
-                                        বিস্তারিত তথ্যের জন্য বিস্তারিত বাটনে ক্লিক করুন।
+        <div>
+            <div className="flex items-center justify-center mb-8">
+                <div className="flex-grow border-t border-blue-300"></div>
+                <h1 className="mx-4 text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800 break-words">
+                    সকল কোর্স
+                </h1>
+                <div className="flex-grow border-t border-blue-300"></div>
+            </div>
+           
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 py-8">
+                {courses.map((course) => (
+                    <Link href={`/allCourses/${course.id}`} key={course.id}>
+                        <div className="card   dark:bg-white dark:text-black h-full bg-base-100 shadow-2xl hover:shadow-lg transition-shadow rounded-xl overflow-hidden">
+                            <div className="relative w-full h-48">
+                                <img
+                                    src={course.fee.image}
+                                    alt={course.course_name}
+                                    className="object-cover w-full h-full"
+                                />
+                            </div>
+
+                            <div className="card-body  flex flex-col justify-between text-center p-4 space-y-2">
+                                <h2 className=" font-bold text-lg">{course.course_name}</h2>
+                                {/* <p className="text-sm text-gray-600">{course.duration}</p> */}
+
+
+
+                                <div>
+                                    <p className="text-sm font-semibold text-success">
+                                        ফি: <span className="line-through text-red-500">{course.fee.regular}৳</span>{" "}
+                                        {course.fee.discounted}৳
                                     </p>
-                                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mt-4 space-y-2 sm:space-y-0 sm:space-x-4">
-                                        <div>
-                                            <p className="text-sm text-gray-500 dark:text-gray-300 line-through">
-                                                Regular Price: {item.fee?.regular?.toLocaleString()} BDT
-                                            </p>
-                                            <p className="text-lg font-bold text-gray-800 dark:text-white">
-                                                Now: {item.fee?.discounted?.toLocaleString()} BDT
-                                            </p>
-                                        </div>
+                                    <p className="text-xs text-gray-500">
+                                        ছাড়ের শেষ সময়: {course.fee.discount_deadline}
+                                    </p>
+                                </div>
 
-                                        <button className="mt-2 sm:mt-0 btn btn-sm rounded-2xl bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-transform duration-200 px-5 py-2 text-sm font-medium">
-                                            বিস্তারিত
-                                        </button>
-                                    </div>
-
+                                <div className="pt-4">
+                                    <button className="btn btn-md btn-primary w-full">এখন ভর্তি হন</button>
                                 </div>
                             </div>
                         </div>

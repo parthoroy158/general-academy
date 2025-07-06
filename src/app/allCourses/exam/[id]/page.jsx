@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 
 export default function Page({ params }) {
     const { id } = params;
+    console.log("This is the params id:", id)
 
     const exam = [
         {
@@ -61,7 +62,7 @@ export default function Page({ params }) {
                 {/* Header */}
                 <div className="flex items-center justify-center mb-8">
                     <div className="flex-grow border-t border-blue-300"></div>
-                    <h1 className="mx-4 text-3xl md:text-4xl font-bold text-blue-800 whitespace-nowrap">
+                    <h1 className="mx-4 text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800 break-words">
                         {data.course_name}
                     </h1>
                     <div className="flex-grow border-t border-blue-300"></div>
