@@ -10,7 +10,7 @@ const AllCoursesNav = () => {
         { label: 'সকল কোর্স', href: '/allCourses' },
         { label: 'বি.জে.এস প্রস্তুতি', href: '/allCourses/bjsCourses' },
         { label: 'এক্সাম ব্যাচ', href: '/allCourses/exam' },
-        { label: 'বার কাউন্সিল প্রস্তুতি', href: '/allCourses/bjsCourses' },
+        { label: 'বার কাউন্সিল প্রস্তুতি', href: '/allCourses/barCouncilCourses' },
     ];
 
 
