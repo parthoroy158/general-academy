@@ -58,7 +58,7 @@ export default function Page({ params }) {
 
     return (
         <div className='w-full bg-gray-50'>
-            <div className="max-w-7xl mx-auto pt-24 px-4 min-h-screen">
+            <div className="max-w-7xl mx-auto pt-0 px-4 min-h-screen">
                 {/* Header */}
                 <div className="flex items-center justify-center mb-8">
                     <div className="flex-grow border-t border-blue-300"></div>
