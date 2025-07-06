@@ -163,6 +163,48 @@ const allCourses = () => {
             },
             mentors: null
         },
+        {
+            course_id: "bjs18-preli-written-batch",
+            course_name: "১৮শ বিজেএস লিখিত এক্সাম ব্যাচ",
+            course_image: "https://i.ibb.co/Ndgcp37d/18th-BJS-Exam-Batch.jpg",
+            exam_details: {
+                subjective_exam: 0,
+                paper_final: 0,
+                full_model_test: 0,
+                total_exams: 35,
+            },
+            free_benefits: [
+                "রিটেন নোট মেকিং গাইড",
+                "রাগিব ভাইয়ের সংবিধান ও CrPC পূর্ণাঙ্গ নোট"
+            ],
+            fee: {
+                amount: 3000,
+                currency: "BDT",
+            },
+            exam_start_date: "2025-05-04",
+            admission_process: [
+                "নিম্নের নম্বরে 013254-10258 (বিকাশ/নগদ) ভর্তি ফি সেন্ড স্ক্রিনশট/ট্রানজেকশন আইডি পাঠাতে হবে।",
+                "২৫ এপ্রিল রিটেন প্রস্তুতি, নোট মেকিং ও বুক লিস্ট সংক্রান্ত ওরিয়েন্টেশন সেশন অনুষ্ঠিত হবে।"
+            ],
+            contact_note: "For any queries, feel free to contact us.",
+            admission: true,
+            active: true,
+            duration: "2 months",
+            start_date: "2025-04-25",
+            course_structure: {
+                subjects: [],
+                modules: [],
+                class_days: [],
+                focus_areas: ["Note Making", "Written Practice"],
+                class_time: null,
+                weekly_schedule: {
+                    classes_per_week: 2,
+                    exams_per_week: 2,
+                },
+                recordings_provided: false
+            },
+            mentors: null
+        }
     ];
     const coursesBarCouncil = [
         {
